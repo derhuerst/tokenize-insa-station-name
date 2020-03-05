@@ -1,14 +1,11 @@
 'use strict'
 
-const {ST} = require('german-states-bbox')
 const queryOverpass = require('@derhuerst/query-overpass')
-
-const bbox = [
-	ST.minLat,
-	ST.minLon,
-	ST.maxLat,
-	ST.maxLon
-].map(v => v.toFixed(3)).join(',')
+const normalize = require('normalize-for-search')
+const slugg = require('slugg')
+const {ok} = require('assert')
+const bbox = require('./bbox')
+const removeRegion = require('../lib/remove-region')
 
 const filter = [
 	'[type=boundary]', '[boundary=administrative]',
@@ -25,7 +22,16 @@ queryOverpass(`\
 out tags;
 `)
 .then((results) => {
-	const municipalities = results.map(res => res.tags.name)
+	const municipalities = results
+	.map(res => normalize(res.tags.name))
+	.map(removeRegion)
+	.map(m => slugg(m.trim()))
+	.sort((m1, m2) => m2.length - m1.length) // descending
+	ok(municipalities.includes('bad-lauterberg'), 'includes "bad-lauterberg"')
+	ok(municipalities.includes('nienburg'), 'includes "nienburg"')
+	ok(municipalities.includes('burg'), 'includes "burg"')
+	ok(municipalities.indexOf('nienburg') < municipalities.indexOf('burg'))
+
 	process.stdout.write(JSON.stringify(municipalities) + '\n')
 })
 .catch((err) => {

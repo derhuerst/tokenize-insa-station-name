@@ -27,7 +27,8 @@
 		"node": ">=10"
 	},
 	"dependencies": {
-		"normalize-for-search": "^2.1.0"
+		"normalize-for-search": "^2.1.0",
+		"slugg": "^1.2.1"
 	},
 	"devDependencies": {
 		"@derhuerst/query-overpass": "^2.0.0",
