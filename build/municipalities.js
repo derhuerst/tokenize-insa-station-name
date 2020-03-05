@@ -16,14 +16,6 @@ const filter = [
 	'[name]', // needs to have a name to be useful
 ].join('')
 
-console.error(`\
-[out:json][timeout:60][bbox:${bbox}];
-(
-	way${filter};
-	relation${filter};
-);
-out tags;
-`)
 queryOverpass(`\
 [out:json][timeout:60][bbox:${bbox}];
 (
@@ -33,7 +25,6 @@ queryOverpass(`\
 out tags;
 `)
 .then((results) => {
-	console.error('res', results)
 	const municipalities = results.map(res => res.tags.name)
 	process.stdout.write(JSON.stringify(municipalities) + '\n')
 })

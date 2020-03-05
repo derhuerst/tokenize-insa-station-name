@@ -6,6 +6,7 @@
 	"files": [
 		"index.js",
 		"municipalities.json",
+		"lib",
 		"example.js"
 	],
 	"keywords": [
@@ -26,6 +27,7 @@
 		"node": ">=10"
 	},
 	"dependencies": {
+		"normalize-for-search": "^2.1.0"
 	},
 	"devDependencies": {
 		"@derhuerst/query-overpass": "^2.0.0",
