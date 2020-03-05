@@ -1,0 +1,35 @@
+{
+	"name": "tokenize-insa-station-name",
+	"description": "Get search tokens from an INSA/NASA station name.",
+	"version": "1.0.0",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"example.js"
+	],
+	"keywords": [
+		"normalize",
+		"tokenize",
+		"search",
+		"insa",
+		"saxony-anhalt",
+		"public transport",
+		"transit"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/tokenize-insa-station-name",
+	"repository": "derhuerst/tokenize-insa-station-name",
+	"bugs": "https://github.com/derhuerst/tokenize-insa-station-name/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=10"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+	},
+	"scripts": {
+		"test": "node test.js",
+		"prepublishOnly": "npm test"
+	}
+}
