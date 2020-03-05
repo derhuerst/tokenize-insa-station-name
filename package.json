@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"files": [
 		"index.js",
+		"municipalities.json",
 		"example.js"
 	],
 	"keywords": [
@@ -27,9 +28,12 @@
 	"dependencies": {
 	},
 	"devDependencies": {
+		"@derhuerst/query-overpass": "^2.0.0",
+		"german-states-bbox": "^1.1.0"
 	},
 	"scripts": {
+		"build": "node build/municipalities.js >municipalities.json",
 		"test": "node test.js",
-		"prepublishOnly": "npm test"
+		"prepublishOnly": "npm run build && npm test"
 	}
 }

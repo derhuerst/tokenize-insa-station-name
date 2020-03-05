@@ -4,6 +4,9 @@ node_js:
   - node
   - 'lts/*'
   - '10'
+script:
+  - 'npm run build'
+  - 'npm test'
 cache: npm
 notifications:
   email:
