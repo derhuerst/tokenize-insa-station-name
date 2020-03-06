@@ -12,7 +12,8 @@
 It
 
 - lower-cases
-- normalizes umlauts & non-ASCII chars (`Landstraße ä–$` -> `landstrasse ae`)
+- normalizes umlauts & non-ASCII chars (`Foo ä–$` -> `foo ae`)
+- expands `str` & `str.` suffixes (`Landstr.` -> `land strasse`)
 - removes `(Saale)`/`(Elbe)`/etc (`Schönebeck (Elbe), Bahnhof` -> `bahnhof schoenebeck`)
 - removes `(b. …)` (`Bornstedt (b. Lu. Eisleben), Neuglück` -> `neuglueck bornstedt`)
 - moves municipalities to the end (`Osterburg (Altmark), Raiffeisen` -> `raiffeisen osterburg`)
@@ -28,7 +29,10 @@ npm install tokenize-insa-station-name
 ## Usage
 
 ```js
-// todo
+const tokenize = require('tokenize-insa-station-name')
+
+tokenize('Bornstedt (b. Lu. Eisleben), Neuglück')
+.join(' ') // -> 'neuglueck bornstedt'
 ```
 
 

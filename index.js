@@ -49,6 +49,11 @@ const normalizeStopName = (name) => {
 		].join('')
 	}
 
+	// expand `str`
+	_ = _
+	.replace(/(\w)strasse\b/g, '$1-strasse')
+	.replace(/(\w)str\b/g, '$1-strasse')
+
 	_ = _.split('-')
 
 	// todo

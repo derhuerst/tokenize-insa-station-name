@@ -4,7 +4,13 @@ const {deepStrictEqual: eql, ok} = require('assert')
 const n = require('.')
 
 // umlauts
-eql(n('Landstraße ä–$'), ['landstrasse', 'ae'])
+eql(n('Foo ä–$'), ['foo', 'ae'])
+
+// expands & splits `str.`/`str`/`strasse`
+eql(n('seestr'), ['see', 'strasse'])
+eql(n('seestr.'), ['see', 'strasse'])
+eql(n('seestraße'), ['see', 'strasse'])
+eql(n('wiebestr/huttenstr'), ['wiebe', 'strasse', 'hutten', 'strasse'])
 
 // // removes `(Saale)`, `(Elbe)`, etc
 ok(!n('Halle  (Saale), Hallmarkt').includes('saale'))
