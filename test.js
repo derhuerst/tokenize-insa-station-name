@@ -18,3 +18,4 @@ eql(n('Bornstedt (b. Lu. Eisleben), Neuglück'), ['neuglueck', 'bornstedt'])
 // puts municipalities last
 eql(n('Osterburg (Altmark), Raiffeisen'), ['raiffeisen', 'osterburg'])
 eql(n('Groß Kreutz'), ['gross', 'kreutz'])
+// todo: eql(n('Jesewitz - Gotha, Schilfteich'), ['schilfteich', 'gotha'])

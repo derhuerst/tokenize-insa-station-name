@@ -9,6 +9,14 @@
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
+It
+
+- lower-cases
+- normalizes umlauts & non-ASCII chars (`Landstraße ä–$` -> `landstrasse ae`)
+- removes `(Saale)`/`(Elbe)`/etc (`Schönebeck (Elbe), Bahnhof` -> `bahnhof schoenebeck`)
+- removes `(b. …)` (`Bornstedt (b. Lu. Eisleben), Neuglück` -> `neuglueck bornstedt`)
+- moves municipalities to the end (`Osterburg (Altmark), Raiffeisen` -> `raiffeisen osterburg`)
+
 
 ## Installation
 
